@@ -1,7 +1,7 @@
 # Development
 Steps to upload in development
 
-1. Build the database
+1. Build the database image in Docker
 ```
     docker compose up -d
 ```
