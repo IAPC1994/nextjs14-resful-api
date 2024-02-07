@@ -6,9 +6,16 @@ Steps to upload in development
     docker compose up -d
 ```
 
-2. Rename env.template file to .env
+2. Create a copy of the env.template file, and rename it to .env
 3. Replace enviroment variables
-4. Execute seed to [build the database](localhost:3000/api/seed)
+4. Execute ``` npm install ```
+5. Execute ``` npm run dev ```
+6. Execute prisma commands 
+```
+    npx prisma migrate dev  
+    npx prisma generate
+```
+7. Execute seed to [build the database](localhost:3000/api/seed)
 
 # Prisma commands
 ```
