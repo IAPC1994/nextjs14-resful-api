@@ -1,4 +1,5 @@
 import prisma from "@/lib/prisma";
+import { TodosGrid } from "@/todos/components";
 
 export default async function RestTodosPage() {
 
@@ -6,10 +7,7 @@ export default async function RestTodosPage() {
 
   return (
     <div>
-      <h1>Page RestTodos</h1>
-      {
-        JSON.stringify( todos )
-      }
+      <TodosGrid todos={ todos }/>
     </div>
   );
 }
