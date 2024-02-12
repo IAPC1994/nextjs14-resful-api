@@ -17,6 +17,10 @@ Steps to upload in development
 ```
 7. Execute seed to [build the database](localhost:3000/api/seed)
 
+## Note: Default user 
+__user:__ test1@google.com
+__password:__ 123456
+
 # Prisma commands
 ```
     npx prisma init

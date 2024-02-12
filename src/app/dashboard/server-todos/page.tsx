@@ -1,12 +1,21 @@
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
 
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import { getUserSessionServer } from "@/auth/actions/auth-actions";
 import prisma from "@/lib/prisma";
 import { NewTodo, TodosGrid } from "@/todos/components";
+import { redirect } from "next/navigation";
 
 export default async function ServerTodosPage() {
 
-  const todos = await prisma.todo.findMany({ orderBy: { description: 'asc' }});
+  const user = await getUserSessionServer();
+  if( !user ) redirect('/api/auth/signin');
+
+  const todos = await prisma.todo.findMany({
+    where: { userId: user.id },
+    orderBy: { description: 'asc' }
+  });
 
   return (
     <>
